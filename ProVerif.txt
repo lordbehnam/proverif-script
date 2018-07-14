@@ -1,0 +1,57 @@
+(* free channel *)
+free c.
+(* multiplication function *)
+fun mult/2.
+fun mult4/4.
+(* Add function *)
+fun Add/2.
+reduc minus(Add(a,b),a)=b.
+(* hash function *)
+fun h/1.
+fun h3/3.
+(* Diffie hellman equation *)
+equation mult(x,mult(y,G))=mult(y,mult(x,G)).
+
+(* Authentication query *)
+
+query event endAutheNB(x,y)=>beginAutheNB(x,y).
+query event endAuthue(x)=>beginAuthue(x).
+
+(* UE subprocess *)
+
+let UE=
+new rue,rue';
+let PKue=mult(rue,YeNB) in
+let Rue=mult(rue,G) in
+let Rue'=mult(rue',G) in
+let Sue=Add(Xue,mult(rue,h3(h(PKue),h(Rue),h(Rue'))) in
+out(c,(Rue,Rue',Sue,Mue,Yue));
+in(c,(xReNB,seNB,meNB,xR));
+if Add(mult(SeNB,G),mult(xReNB,h3(h(PKeNB),h(xReNB),h(xR)))= Add(mult(h(meNB),YHSS),meNB) then
+let K=mult(rue',xR) in
+event beginAuthUE(K);
+out(c,h3(K,PKue,Rue));
+event endAutheNB(K,xReNB). 
+(* eNB subprocess *)
+let eNB=
+in(c,(Rue,Rue',Sue,mue,Yue)); 
+if Add(mult(Sue,G),mult(Rue,h3(h(PKue),h(Rue),h(Rue'))= Add(mult(h(mue),YHSS),mue) then
+new reNB,r';
+let R'=mult(r',G) in
+let K=mult(r',Rue') in
+let PKeNB=mult(reNB,Yue) in
+let ReNB=mult(reNB,G) in
+let SeNB=Add(XeNB,mult4(reNB,h4(h(PKeNB),h(ReNB),h(R'),h(Rue))) in
+event beginAutheNB(K,ReNB);
+out(c,(ReNB,SeNB,meNB,R'));
+in(c,xh3(K,PKue,Rue));
+if h3(K,PKue,Rue)=xh3(K,PKue,Rue) then
+event endAuthUE(K).
+(* main process *)
+process
+new r;
+let mue=mult(r,G) then
+let Yue=Add(mult(mult(XHSS,h(mue)),G),mult(r,G)) in
+let meNB=mult(r,G) then
+let YeNB=Add(mult(mult(XHSS,h(meNB)),G),mult(r,G)) in
+(!(UE)|!(eNB))
